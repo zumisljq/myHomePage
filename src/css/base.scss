@@ -1,0 +1,70 @@
+$jade-green :rgb(80, 230, 88);
+$all-grey: rgb(156, 156, 156);
+body{
+    width: 100%;
+    margin: 0;padding: 0;
+    background-color: transparent;
+}
+* {
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+//主版
+.z-homepage-container{
+    position: relative;
+    display: block;
+    max-width: 1200px;
+    padding-left: 200px;
+    height: 100%;
+    background-color: rgb(80, 255, 180);
+    margin: 0 auto;
+    a.z-navbar-switch{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ccc;
+        width: 50px;
+        height: 50px;
+    }
+    .z-navbar{
+        position: absolute;
+        width: 200px;
+        margin-left: -200px;
+        height: 1200px;
+        border-left: 1px solid rgb(100, 100, 100);
+        border-right: 1px solid rgb(100, 100, 100);
+        box-shadow: 0 0 12px 8px rgba(75, 75, 75, 0.4);
+        background-color: rgb(100, 89, 255);
+        z-index: 5;
+    }
+    .z-boxs{
+        width: 1000px;
+        position: relative;
+        .z-main-box{
+            height: 800px;
+            background: linear-gradient(-45deg, #fafafa 25%, #fff 25%, #fff 50%, #fafafa 50%, #fafafa 75%, #fff 75%, #fff);
+            background-size: 30px 30px;
+        }
+        .z-footer div{
+            margin: 0; padding: 0;
+            width: 100%;
+            display: block;
+            height: 200px;
+            background: linear-gradient(-45deg, #ccc 25%, #fff 25%, #fff 50%, #ccc 50%, #ccc 75%, #fff 75%, #fff);
+            background-size: 10px 10px;
+            text-align: center;
+            padding: 20px;
+        
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .z-homepage-container{
+        position: relative;
+        padding-left: 0;
+    }
+    a.z-navbar-switch{
+        display: block !important;
+    }
+}

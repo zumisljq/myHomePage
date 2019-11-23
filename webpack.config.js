@@ -1,21 +1,24 @@
-const path = require('path');
-
+//zumis
+const path = require('path')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-    entry: './src/index.js',//入口文件路徑
-    output: {
-        path: path.resolve(__dirname, 'dist'),//出口文件輸出文件夾
-        filename: 'zumis-bundle.js'//輸出文件名稱
+    mode: 'development',
+    entry: path.join(__dirname, './src/index.js'),
+    output:{
+        path: path.join(__dirname, './dist'),
+        filename: 'z-bundle.js'
     },
-    //loader 規則
-    module: {
-        reles: [
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] },//loader順序右到左
-            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: path.join(__dirname, './src/index.html'),
+            filename: 'index.html'})
+    ],
+    module:{//第三方模块加载器
+        rules:[//第三方的匹配规制
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            {  test: /\.css$/, use: ['style-loader', 'css-loader']  },
+            {  test: /\.scss$/, use: ['style-loader', 'css-loader','sass-loader']  }
+
         ]
     },
-    //先在聲明 再在plugins創建實例
-    plugins: [
-
-    ]
-};
+}
